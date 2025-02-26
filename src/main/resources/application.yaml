@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: "ecommerceapi"
+
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/ecommerce"
+    username: "ecommerceapp"
+    password: "ecommerceapp"
+    driver-class-name: "org.postgresql.Driver"
+
+  jpa:
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
