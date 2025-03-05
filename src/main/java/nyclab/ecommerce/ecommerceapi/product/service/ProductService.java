@@ -16,13 +16,19 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-    public Page<Product> getProducts(int page, int size) {
-        Pageable pageable = Pageable.ofSize(size).withPage(page);
-
+    public Page<Product> getProducts(Pageable pageable) {
         return productRepository.findAll(pageable);
     }
 
     public Product getProduct(Long id) {
         return productRepository.findById(id).orElseThrow(() -> new RuntimeException("Product not found"));
+    }
+
+    public Page<Product> findByCategoryId(Long id, Pageable pageable) {
+        return productRepository.findByCategoryId(id, pageable);
+    }
+
+    public Page<Product> findByProductNameContaining(String name, Pageable pageable) {
+        return productRepository.findByNameContainingIgnoreCase(name, pageable);
     }
 }
