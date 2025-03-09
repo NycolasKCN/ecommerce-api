@@ -1,6 +1,6 @@
 package nyclab.ecommerce.ecommerceapi.product.service;
 
-import nyclab.ecommerce.ecommerceapi.product.model.Product;
+import nyclab.ecommerce.ecommerceapi.product.domain.Product;
 import nyclab.ecommerce.ecommerceapi.product.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

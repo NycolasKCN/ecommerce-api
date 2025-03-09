@@ -1,17 +1,19 @@
-package nyclab.ecommerce.ecommerceapi.productcategory.model;
+package nyclab.ecommerce.ecommerceapi.productcategory.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-import nyclab.ecommerce.ecommerceapi.product.model.Product;
+import nyclab.ecommerce.ecommerceapi.product.domain.Product;
 import nyclab.ecommerce.ecommerceapi.productcategory.dto.ProductCategoryDTO;
 
 import java.util.Set;
 
+// TODO: Improve JPA annotations to match the sql script
+
 @Getter
 @Setter
 @Entity
-@Table(name = "product_categories")
+@Table(name = "product_category")
 public class ProductCategory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

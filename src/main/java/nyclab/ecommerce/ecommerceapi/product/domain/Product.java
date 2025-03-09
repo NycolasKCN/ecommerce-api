@@ -1,17 +1,19 @@
-package nyclab.ecommerce.ecommerceapi.product.model;
+package nyclab.ecommerce.ecommerceapi.product.domain;
 
 import jakarta.persistence.*;
 import lombok.Data;
 import nyclab.ecommerce.ecommerceapi.product.dto.ProductDTO;
-import nyclab.ecommerce.ecommerceapi.productcategory.model.ProductCategory;
+import nyclab.ecommerce.ecommerceapi.productcategory.domain.ProductCategory;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
 
+// TODO: Improve JPA annotations to match the sql script
+
 @Data
 @Entity
-@Table(name = "products")
+@Table(name = "product")
 public class Product {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)

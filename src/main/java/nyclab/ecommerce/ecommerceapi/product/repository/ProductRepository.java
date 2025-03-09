@@ -1,6 +1,6 @@
 package nyclab.ecommerce.ecommerceapi.product.repository;
 
-import nyclab.ecommerce.ecommerceapi.product.model.Product;
+import nyclab.ecommerce.ecommerceapi.product.domain.Product;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

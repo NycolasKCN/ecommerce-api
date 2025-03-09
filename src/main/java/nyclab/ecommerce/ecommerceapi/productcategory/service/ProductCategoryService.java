@@ -1,6 +1,6 @@
 package nyclab.ecommerce.ecommerceapi.productcategory.service;
 
-import nyclab.ecommerce.ecommerceapi.productcategory.model.ProductCategory;
+import nyclab.ecommerce.ecommerceapi.productcategory.domain.ProductCategory;
 import nyclab.ecommerce.ecommerceapi.productcategory.repository.ProductCategoryRepository;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

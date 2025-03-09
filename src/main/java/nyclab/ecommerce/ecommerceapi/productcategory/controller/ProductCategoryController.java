@@ -2,7 +2,7 @@ package nyclab.ecommerce.ecommerceapi.productcategory.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import nyclab.ecommerce.ecommerceapi.productcategory.dto.ProductCategoryDTO;
-import nyclab.ecommerce.ecommerceapi.productcategory.model.ProductCategory;
+import nyclab.ecommerce.ecommerceapi.productcategory.domain.ProductCategory;
 import nyclab.ecommerce.ecommerceapi.productcategory.service.ProductCategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
