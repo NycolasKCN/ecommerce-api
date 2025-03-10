@@ -1,8 +1,7 @@
 package nyclab.ecommerce.ecommerceapi.customer.domain;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import nyclab.ecommerce.ecommerceapi.order.domain.Order;
 
 import java.util.HashSet;
@@ -14,6 +13,9 @@ import java.util.Set;
 @Table(name = "customer")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

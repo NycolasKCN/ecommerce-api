@@ -1,9 +1,10 @@
 package nyclab.ecommerce.ecommerceapi.address.domain;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
+import nyclab.ecommerce.ecommerceapi.country.domain.Country;
 import nyclab.ecommerce.ecommerceapi.order.domain.Order;
+import nyclab.ecommerce.ecommerceapi.state.domain.State;
 
 // TODO: Improve JPA annotations to match the sql script
 
@@ -11,6 +12,9 @@ import nyclab.ecommerce.ecommerceapi.order.domain.Order;
 @Table(name = "address")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,17 +24,19 @@ public class Address {
     @Column(name = "city")
     private String city;
 
-    @Column(name = "country")
-    private String country;
-
-    @Column(name = "state")
-    private String state;
-
     @Column(name = "street")
     private String street;
 
     @Column(name = "zip_code")
-    private String zip_code;
+    private String zipCode;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "state_id")
+    private State state;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "country_id")
+    private Country country;
 
     @OneToOne
     @PrimaryKeyJoinColumn

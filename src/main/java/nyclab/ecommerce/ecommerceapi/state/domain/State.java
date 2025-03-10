@@ -4,8 +4,12 @@ import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import nyclab.ecommerce.ecommerceapi.address.domain.Address;
 import nyclab.ecommerce.ecommerceapi.country.domain.Country;
 import nyclab.ecommerce.ecommerceapi.state.dto.StateDTO;
+
+import java.util.ArrayList;
+import java.util.List;
 
 // TODO: Improve JPA annotations to match the sql script
 
@@ -26,6 +30,9 @@ public class State {
     @ManyToOne
     @JoinColumn(name = "country_id")
     private Country country;
+
+    @OneToMany(mappedBy = "state")
+    private List<Address> addresses = new ArrayList<>();
 
     public StateDTO toDTO() {
         return StateDTO.builder()

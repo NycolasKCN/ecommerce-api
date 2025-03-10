@@ -1,8 +1,7 @@
 package nyclab.ecommerce.ecommerceapi.order.domain;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import nyclab.ecommerce.ecommerceapi.address.domain.Address;
 import nyclab.ecommerce.ecommerceapi.customer.domain.Customer;
 import nyclab.ecommerce.ecommerceapi.orderitem.domain.OrderItem;
@@ -20,6 +19,9 @@ import java.util.Set;
 @Table(name = "orders")
 @Getter
 @Setter
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

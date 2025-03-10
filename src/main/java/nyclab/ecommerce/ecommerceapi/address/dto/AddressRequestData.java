@@ -1,27 +1,19 @@
 package nyclab.ecommerce.ecommerceapi.address.dto;
 
-import lombok.Builder;
 import lombok.Data;
 import nyclab.ecommerce.ecommerceapi.address.domain.Address;
-import nyclab.ecommerce.ecommerceapi.country.domain.Country;
-import nyclab.ecommerce.ecommerceapi.state.domain.State;
 
 @Data
-@Builder
-public class AddressDTO {
-    private Long id;
+public class AddressRequestData {
     private String city;
-    private Country country;
-    private State state;
+    private Integer countryId;
+    private Integer stateId;
     private String street;
     private String zipCode;
 
     public Address toEntity() {
         return Address.builder()
-                .id(id)
                 .city(city)
-                .country(country)
-                .state(state)
                 .street(street)
                 .zipCode(zipCode)
                 .build();
