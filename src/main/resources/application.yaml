@@ -21,3 +21,8 @@ logging:
 
 allowed:
   origin: "http://localhost:4200"
+
+okta:
+  oauth2:
+    issuer: "${OKTA_OAUTH2_ISSUER}"
+    client-id: "${OKTA_OAUTH2_CLIENT_ID}"

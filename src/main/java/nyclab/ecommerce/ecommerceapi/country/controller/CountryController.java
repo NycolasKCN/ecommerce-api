@@ -29,7 +29,7 @@ public class CountryController {
     ) {
         log.debug("getCountries called with page={}, size={}", pageable.getPageNumber(), pageable.getPageSize());
 
-        Page<CountryDTO> countries = countryService.getCountries(pageable).map(Country::toDTO);
+        Page<CountryDTO> countries = countryService.getCountries(pageable).map(Country::toDto);
 
         log.debug("getCountries returned {} countries", countries.getTotalElements());
 
@@ -39,7 +39,7 @@ public class CountryController {
     @GetMapping("/{id}")
     public CountryDTO getCountry(@PathVariable Integer id) {
         log.debug("getCountry called with id={}", id);
-        CountryDTO countryDTO = countryService.getCountry(id).toDTO();
+        CountryDTO countryDTO = countryService.getCountry(id).toDto();
         log.debug("getCountry called with id={}", countryDTO.getId());
         return countryDTO;
     }

@@ -2,6 +2,7 @@ package nyclab.ecommerce.ecommerceapi.customer.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import nyclab.ecommerce.ecommerceapi.customer.dto.CustomerDTO;
 import nyclab.ecommerce.ecommerceapi.order.domain.Order;
 
 import java.util.HashSet;
@@ -42,5 +43,14 @@ public class Customer {
             this.orders.add(order);
             order.setCustomer(this);
         }
+    }
+
+    public CustomerDTO toDto() {
+        return CustomerDTO.builder()
+                .id(this.id)
+                .firstName(this.firstName)
+                .lastName(this.lastName)
+                .email(this.email)
+                .build();
     }
 }

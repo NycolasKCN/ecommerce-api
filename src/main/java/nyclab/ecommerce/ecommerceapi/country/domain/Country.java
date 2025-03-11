@@ -1,8 +1,7 @@
 package nyclab.ecommerce.ecommerceapi.country.domain;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import nyclab.ecommerce.ecommerceapi.address.domain.Address;
 import nyclab.ecommerce.ecommerceapi.country.dto.CountryDTO;
 import nyclab.ecommerce.ecommerceapi.state.domain.State;
@@ -16,6 +15,9 @@ import java.util.List;
 @Table(name = "country")
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,7 +36,7 @@ public class Country {
     @OneToMany(mappedBy = "country")
     private List<Address> addresses = new ArrayList<>();
 
-    public CountryDTO toDTO() {
+    public CountryDTO toDto() {
         return CountryDTO.builder()
                 .id(this.id)
                 .code(this.code)

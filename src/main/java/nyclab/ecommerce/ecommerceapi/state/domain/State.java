@@ -1,9 +1,7 @@
 package nyclab.ecommerce.ecommerceapi.state.domain;
 
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 import nyclab.ecommerce.ecommerceapi.address.domain.Address;
 import nyclab.ecommerce.ecommerceapi.country.domain.Country;
 import nyclab.ecommerce.ecommerceapi.state.dto.StateDTO;
@@ -17,6 +15,9 @@ import java.util.List;
 @Table(name = "state")
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @EqualsAndHashCode(of = {"name", "country"})
 public class State {
     @Id
@@ -34,11 +35,11 @@ public class State {
     @OneToMany(mappedBy = "state")
     private List<Address> addresses = new ArrayList<>();
 
-    public StateDTO toDTO() {
+    public StateDTO toDto() {
         return StateDTO.builder()
                 .id(id)
                 .name(name)
-                .country(country.toDTO())
+                .country(country.toDto())
                 .build();
     }
 }

@@ -3,6 +3,7 @@ package nyclab.ecommerce.ecommerceapi.orderitem.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import nyclab.ecommerce.ecommerceapi.order.domain.Order;
+import nyclab.ecommerce.ecommerceapi.orderitem.dto.OrderItemDTO;
 import nyclab.ecommerce.ecommerceapi.product.domain.Product;
 
 import java.math.BigDecimal;
@@ -36,4 +37,12 @@ public class OrderItem {
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
 
+    public OrderItemDTO toDto() {
+        return OrderItemDTO.builder()
+                .id(id)
+                .productId(product.getId())
+                .priceAtPurchase(priceAtPurchase)
+                .orderId(order.getId())
+                .build();
+    }
 }

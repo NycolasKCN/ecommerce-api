@@ -2,6 +2,7 @@ package nyclab.ecommerce.ecommerceapi.address.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import nyclab.ecommerce.ecommerceapi.address.dto.AddressDTO;
 import nyclab.ecommerce.ecommerceapi.country.domain.Country;
 import nyclab.ecommerce.ecommerceapi.order.domain.Order;
 import nyclab.ecommerce.ecommerceapi.state.domain.State;
@@ -41,4 +42,15 @@ public class Address {
     @OneToOne
     @PrimaryKeyJoinColumn
     private Order order;
+
+    public AddressDTO toDto() {
+        return AddressDTO.builder()
+                .id(id)
+                .city(city)
+                .street(street)
+                .zipCode(zipCode)
+                .state(state.toDto())
+                .country(country.toDto())
+                .build();
+    }
 }

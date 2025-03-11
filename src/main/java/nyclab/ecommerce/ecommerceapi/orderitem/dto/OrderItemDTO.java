@@ -2,7 +2,6 @@ package nyclab.ecommerce.ecommerceapi.orderitem.dto;
 
 import lombok.Builder;
 import lombok.Data;
-import nyclab.ecommerce.ecommerceapi.order.dto.OrderDTO;
 
 import java.math.BigDecimal;
 
@@ -10,9 +9,8 @@ import java.math.BigDecimal;
 @Builder
 public class OrderItemDTO {
     private Long id;
-    private String imageUrl;
-    private BigDecimal unitPrice;
+    private BigDecimal priceAtPurchase;
     private Integer quantity;
     private Long productId;
-    private OrderDTO order;
+    private Long orderId;
 }

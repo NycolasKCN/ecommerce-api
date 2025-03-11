@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import nyclab.ecommerce.ecommerceapi.address.domain.Address;
 import nyclab.ecommerce.ecommerceapi.customer.domain.Customer;
+import nyclab.ecommerce.ecommerceapi.order.dto.OrderDTO;
 import nyclab.ecommerce.ecommerceapi.orderitem.domain.OrderItem;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -12,6 +13,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 // TODO: Improve JPA annotations to match the sql script
 
@@ -73,4 +75,19 @@ public class Order {
         }
     }
 
+    public OrderDTO toDto() {
+        return OrderDTO.builder()
+                .id(id)
+                .orderTrackingNumber(orderTrackingNumber)
+                .totalQuantity(totalQuantity)
+                .totalPrice(totalPrice)
+                .status(status)
+                .dateCreated(dateCreated)
+                .lastUpdated(lastUpdated)
+                .customer(customer.toDto())
+                .shippingAddress(shippingAddress.toDto())
+                .billingAddress(billingAddress.toDto())
+                .orderItems(orderItems.stream().map(OrderItem::toDto).collect(Collectors.toSet()))
+                .build();
+    }
 }
