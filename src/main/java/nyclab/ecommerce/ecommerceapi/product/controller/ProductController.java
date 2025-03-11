@@ -1,8 +1,8 @@
 package nyclab.ecommerce.ecommerceapi.product.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import nyclab.ecommerce.ecommerceapi.product.dto.ProductDTO;
 import nyclab.ecommerce.ecommerceapi.product.domain.Product;
+import nyclab.ecommerce.ecommerceapi.product.dto.ProductDTO;
 import nyclab.ecommerce.ecommerceapi.product.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -11,7 +11,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping(value = "/v1/api/products", produces = MediaType.APPLICATION_JSON_VALUE)
 @Slf4j
